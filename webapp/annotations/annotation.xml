@@ -14,6 +14,160 @@
     </edmx:Reference>
     <edmx:DataServices>
         <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+
+            <Annotations Target="NorthwindModel.Product">
+
+                <!-- List Report: columns shown in the table -->
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductID"/>
+                            <PropertyValue Property="Label" String="Product ID"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                            <PropertyValue Property="Label" String="Product Name"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitPrice"/>
+                            <PropertyValue Property="Label" String="Unit Price"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitsInStock"/>
+                            <PropertyValue Property="Label" String="Units In Stock"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- Object Page: header info (title and subtitle) -->
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Product"/>
+                        <PropertyValue Property="TypeNamePlural" String="Products"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductName"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductID"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- Object Page: header facets (key info shown at the top) -->
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderData"/>
+                            <PropertyValue Property="Label" String="Key Data"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderData">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UnitPrice"/>
+                                    <PropertyValue Property="Label" String="Unit Price"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UnitsInStock"/>
+                                    <PropertyValue Property="Label" String="Units In Stock"/>
+                                </Record>
+                               
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- Object Page: body sections -->
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInfo"/>
+                            <PropertyValue Property="Label" String="General Information"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#StockInfo"/>
+                            <PropertyValue Property="Label" String="Stock Information"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- Section 1: General Information -->
+                <Annotation Term="UI.FieldGroup" Qualifier="GeneralInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductID"/>
+                                    <PropertyValue Property="Label" String="Product ID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductName"/>
+                                    <PropertyValue Property="Label" String="Product Name"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="SupplierID"/>
+                                    <PropertyValue Property="Label" String="Supplier ID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CategoryID"/>
+                                    <PropertyValue Property="Label" String="Category ID"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="QuantityPerUnit"/>
+                                    <PropertyValue Property="Label" String="Quantity Per Unit"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UnitPrice"/>
+                                    <PropertyValue Property="Label" String="Unit Price"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- Section 2: Stock Information -->
+                <Annotation Term="UI.FieldGroup" Qualifier="StockInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UnitsInStock"/>
+                                    <PropertyValue Property="Label" String="Units In Stock"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="UnitsOnOrder"/>
+                                    <PropertyValue Property="Label" String="Units On Order"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ReorderLevel"/>
+                                    <PropertyValue Property="Label" String="Reorder Level"/>
+                                </Record>
+                               
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- Selection fields shown in the filter bar -->
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ProductID</PropertyPath>
+                        <PropertyPath>ProductName</PropertyPath>
+                        <PropertyPath>UnitPrice</PropertyPath>  
+                        <PropertyPath>UnitsInStock</PropertyPath>
+                    </Collection>
+                </Annotation>
+
+            </Annotations>
+
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
