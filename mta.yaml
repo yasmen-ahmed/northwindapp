@@ -9,10 +9,11 @@ modules:
     memory: 256M
     disk-quota: 512M
   requires:
+  - name: northwindapp-uaa
   - name: northwindapp-destination-service
     group: destinations
     properties:
-      forwardAuthToken: false
+      forwardAuthToken: true
       name: ui5
       url: https://ui5.sap.com
   build-parameters:
@@ -35,6 +36,12 @@ modules:
     - npm run build:cf
     supported-platforms: []
 resources:
+- name: northwindapp-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: xsuaa
+    service-plan: application
+    path: ./xs-security.json
 - name: northwindapp-destination-service
   type: org.cloudfoundry.managed-service
   parameters:

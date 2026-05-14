@@ -2,6 +2,22 @@
   "xsappname": "northwindapp",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
-  "scopes": [],
-  "role-templates": []
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.Viewer",
+      "description": "View access to the app"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Viewer",
+      "description": "View access to the northwindapp",
+      "scope-references": ["$XSAPPNAME.Viewer"]
+    }
+  ],
+  "oauth2-configuration": {
+    "redirect-uris": [
+      "https://*.cfapps.us10-001.hana.ondemand.com/login/callback"
+    ]
+  }
 }

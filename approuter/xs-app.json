@@ -1,12 +1,12 @@
 {
   "welcomeFile": "/index.html",
-  "authenticationMethod": "none",
+  "authenticationMethod": "route",
   "routes": [
     {
       "source": "^/V2/(.*)$",
       "target": "/V2/$1",
       "destination": "Northwind",
-      "authenticationType": "none"
+      "authenticationType": "xsuaa"
     },
     {
       "source": "^/resources/(.*)$",
@@ -24,7 +24,7 @@
       "source": "^(.*)$",
       "target": "$1",
       "localDir": "resources",
-      "authenticationType": "none"
+      "authenticationType": "xsuaa"
     }
   ]
 }
