@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "14d38a6f-e2a0-4166-a88f-dc40d4e94ad3",
+		"name": "solex task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39954036"
+	},
+	"item": [
+		{
+			"name": "top",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://services.odata.org/V2/Northwind/Northwind.svc/Products?$top=5&$format=json",
+					"protocol": "https",
+					"host": [
+						"services",
+						"odata",
+						"org"
+					],
+					"path": [
+						"V2",
+						"Northwind",
+						"Northwind.svc",
+						"Products"
+					],
+					"query": [
+						{
+							"key": "$top",
+							"value": "5"
+						},
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "filter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://services.odata.org/V2/Northwind/Northwind.svc/Products?$filter=UnitPrice gt 20&$format=json",
+					"protocol": "https",
+					"host": [
+						"services",
+						"odata",
+						"org"
+					],
+					"path": [
+						"V2",
+						"Northwind",
+						"Northwind.svc",
+						"Products"
+					],
+					"query": [
+						{
+							"key": "$filter",
+							"value": "UnitPrice gt 20"
+						},
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "select",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://services.odata.org/V2/Northwind/Northwind.svc/Products?$select=ProductName,UnitPrice&$format=json",
+					"protocol": "https",
+					"host": [
+						"services",
+						"odata",
+						"org"
+					],
+					"path": [
+						"V2",
+						"Northwind",
+						"Northwind.svc",
+						"Products"
+					],
+					"query": [
+						{
+							"key": "$select",
+							"value": "ProductName,UnitPrice"
+						},
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "orderby",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://services.odata.org/V2/Northwind/Northwind.svc/Products?$orderby=ProductName asc&$format=json",
+					"protocol": "https",
+					"host": [
+						"services",
+						"odata",
+						"org"
+					],
+					"path": [
+						"V2",
+						"Northwind",
+						"Northwind.svc",
+						"Products"
+					],
+					"query": [
+						{
+							"key": "$orderby",
+							"value": "ProductName asc"
+						},
+						{
+							"key": "$format",
+							"value": "json"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ID\": 100,\n  \"Name\": \"Test Product\",\n  \"Description\": \"Created via Postman POST request\",\n  \"ReleaseDate\": \"2026-05-14T00:00:00\",\n  \"Rating\": 5,\n  \"Price\": \"29.99\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://services.odata.org/V2/(S(northwindapp123))/OData/OData.svc/Products",
+					"protocol": "https",
+					"host": [
+						"services",
+						"odata",
+						"org"
+					],
+					"path": [
+						"V2",
+						"(S(northwindapp123))",
+						"OData",
+						"OData.svc",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
